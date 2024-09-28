@@ -1,5 +1,6 @@
 package com.example;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class HybridContent implements Content {
@@ -15,5 +16,10 @@ public class HybridContent implements Content {
             sb.append(content.toString()).append("");
         }
         return sb.toString();
+    }
+
+    @Override
+    public Iterator<Content> iterator() {
+        return contents.iterator();
     }
 }
