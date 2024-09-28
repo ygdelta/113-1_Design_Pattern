@@ -15,8 +15,8 @@ public class ContentTest {
 
     @Test
     public void testHybridContentCreation() {
-        Content t1 = new Text("Hellow,");
-        Content t2 = new Text(" World!");
+        Content t1 = new Text("Hellow, ");
+        Content t2 = new Text("World!");
         List<Content> contents = new ArrayList<>();
         contents.add(t1);
         contents.add(t2);
