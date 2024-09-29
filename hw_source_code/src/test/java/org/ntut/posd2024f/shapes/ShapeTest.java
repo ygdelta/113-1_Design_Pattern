@@ -30,17 +30,25 @@ public class ShapeTest {
         Rectangle r = new Rectangle(-3.3, 3);
     }
 
-    public void testTriangle() throws Exception {
+    @Test
+    public void testTriangleToString() throws Exception {
         Shape r = new Rectangle(4, 3);
         assertEquals("Rectangle 4 3", r.toString());
     }
 
-    public void testCircle() throws Exception {
+    @Test
+    public void testTrianglePerimeter() {
+
+    }
+
+    @Test
+    public void testCircleToString() throws Exception {
         Shape c = new Circle(3);
         assertEquals("Circle 3", c.toString());
     }
 
-    public void testRectangle() throws Exception {
+    @Test
+    public void testRectangleToString() throws Exception {
         Rectangle r = new Rectangle(4, 3);
         assertEquals("Rectangle 4 3", r.toString());
     }
