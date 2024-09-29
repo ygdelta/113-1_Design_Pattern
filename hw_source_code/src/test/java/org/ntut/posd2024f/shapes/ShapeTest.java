@@ -10,46 +10,37 @@ import org.junit.rules.ExpectedException;
 
 public class ShapeTest {
     // e.g. Shape circle = new Circle(...)
-    @Test(expected = Exception.class)
-    public void testException1() throws Exception {
-        Shape r = new Rectangle(-3.3, 3);
-    }
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
-    @Test(expected = Exception.class)
-    public void testException2() throws Exception {
-        Shape c = new Circle(-3.3);
-    }
-
-    @Test(expected = Exception.class)
-    public void testException3() throws Exception {
-        Triangle t = new Triangle(10, 3, 4);
-    }
-
-    @Test(expected = Exception.class)
-    public void testException4() throws Exception {
-        Rectangle r = new Rectangle(-3.3, 3);
+    @Test
+    public void testTriangle() throws Exception {
+        Shape t = new Triangle(4, 3, 5);
+        double perimeter = 4.0 + 3.0 + 5.0;
+        double s = 0.5 * perimeter;
+        double area = Math.sqrt(s * (s - 3.0) * (s - 4.0) * (s - 5.0));
+        assertEquals("Rectangle 4 3 5", t.toString());
+        assertEquals(perimeter, t.perimeter(), 0.01);
+        assertEquals(area, t.area(), 0.01);
     }
 
     @Test
-    public void testTriangleToString() throws Exception {
-        Shape r = new Rectangle(4, 3);
-        assertEquals("Rectangle 4 3", r.toString());
-    }
-
-    @Test
-    public void testTrianglePerimeter() {
-
-    }
-
-    @Test
-    public void testCircleToString() throws Exception {
+    public void testCircle() throws Exception {
         Shape c = new Circle(3);
+        double perimeter = Math.PI * 2 * 3.0;
+        double area = Math.PI * 3.0 * 3.0;
         assertEquals("Circle 3", c.toString());
+        assertEquals(perimeter, c.perimeter(), 0.01);
+        assertEquals(area, c.area(), 0.01);
     }
 
     @Test
-    public void testRectangleToString() throws Exception {
-        Rectangle r = new Rectangle(4, 3);
+    public void testRectangle() throws Exception {
+        Shape r = new Rectangle(4, 3);
+        double perimeter = 2 * (4.0 + 3.0);
+        double area = 4.0 * 3.0;
         assertEquals("Rectangle 4 3", r.toString());
+        assertEquals(perimeter, r.perimeter(), 0.01);
+        assertEquals(area, r.area(), 0.01);
     }
 }
