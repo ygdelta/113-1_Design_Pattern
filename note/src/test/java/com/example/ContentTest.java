@@ -68,7 +68,7 @@ public class ContentTest {
 
     @Test
     public void testPicWordCount() {
-        Picture pic = new Picture("src/test/resources/blue.png");
+        Picture pic = new Picture("src/test/resources/blue_image.png");
         assertEquals(1000, pic.wordCount());
     }
 
