@@ -1,6 +1,8 @@
 package com.example;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -44,5 +46,40 @@ public class ContentTest {
         Content text = new Text("test");
         Iterator<Content> it = text.iterator();
         assertEquals(null, it);
+    }
+    
+    @Test
+    public void testPictureGetImageData() throws FileNotFoundException {
+        Picture pic = new Picture("src/test/resources/blue_image.png");
+        int[][] imageData = new int[100][300];
+        imageData = pic.getImageData();
+        for (int i = 0; i < 100; i++) {
+            for (int j = 0; j < 300; j++) {
+                // TODO: assertEqual the pixel in image.
+            }
+        }
+    }
+    
+    @Test
+    public void testWordCount() {
+        Content text = new Text("Hello World!");
+        assertEquals(2, text.wordCount());
+    }
+
+    @Test
+    public void testPicWordCount() {
+        Picture pic = new Picture("src/test/resources/blue.png");
+        assertEquals(1000, pic.wordCount());
+    }
+
+    @Test
+    public void testCaptionedContentWordCount() {
+        Content pic = new Picture("src/test/resources/blue_image.png");
+        Text caption = new Text("Hellow World!");
+        List<Content> contents = new ArrayList<>();
+        contents.add(pic);
+        contents.add(caption);
+        HybridContent hybridContent = new HybridContent(contents);
+        assertEquals();
     }
 }
