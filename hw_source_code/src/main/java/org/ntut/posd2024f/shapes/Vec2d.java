@@ -1,7 +1,6 @@
 package org.ntut.posd2024f.shapes;
 
 public class Vec2d {
-    // TODO: Implement the class Vec2d
     private double x;
     private double y;
 
@@ -31,8 +30,8 @@ public class Vec2d {
     }
 
     public Vec2d subtract(Vec2d v2) {
-        int x = this.x - v2.getX();
-        int y = this.y - v2.getY();
-        Vec2d ans = new Vec2d(x, y);
+        double x = this.x - v2.getX();
+        double y = this.y - v2.getY();
+        return new Vec2d(x, y);
     }
 }

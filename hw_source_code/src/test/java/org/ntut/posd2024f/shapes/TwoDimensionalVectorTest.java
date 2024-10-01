@@ -17,13 +17,17 @@ public class TwoDimensionalVectorTest {
 
     @Test
     public void testVectorCreation() {
-        // TODO: Creation test?
+        double x = 1.0;
+        double y = 2.0;
+        Vec2d v = new Vec2d(x, y);
+        assertEquals(x, v.getX(), 0.01);
+        assertEquals(y, v.getY(), 0.01);
     }
 
     @Test
     public void testVectorLength() {
         double ans = Math.sqrt((3.0 * 3.0) + (4.0 * 4.0));
-        assertEquals(ans, v.length(), 0.01);
+        assertEquals(ans, v1.length(), 0.01);
     }
 
     @Test
@@ -41,6 +45,8 @@ public class TwoDimensionalVectorTest {
     @Test
     public void testVectorSubtract() {
         Vec2d ans = new Vec2d(2.0, 2.0);
-        assertEquals(ans, v1.subtract(v2));
+        Vec2d result = v1.subtract(v2);
+        assertEquals(ans.getX(), result.getX(), 0.01);
+        assertEquals(ans.getY(), result.getX(), 0.01);
     }
 }
