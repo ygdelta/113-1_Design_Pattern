@@ -3,45 +3,66 @@ package org.ntut.posd2024f.shapes;
 import java.util.List;
 
 public class Triangle implements Shape {
-    private TwoDimensionalVector v1;
-    private TwoDimensionalVector v2;
-    private TwoDimensionalVector v3;
+    private List<TwoDimensionalVector> vectors;
 
-    public Triangle(List<TwoDimensionalVector> vectors) throws Exception {
-        if (vectors.size() != 3) { // Triangle must construct by 2 vectors.
-            throw new Exception("It's not a triangle!");
+    public Triangle(List<TwoDimensionalVector> vectors) throws ShapeException {
+        if (vectors.size() != 3) { // Triangle must construct by 3 vectors.
+            throw new ShapeException("It's not a triangle!");
         }
-        TwoDimensionalVector v1 = vectors.get(0);
-        TwoDimensionalVector v2 = vectors.get(1);
-        TwoDimensionalVector v3 = vectors.get(2);
-        int v1_x = v1.getX();
-        int v2_x = v2.getX();
-        int v3_x = v3.getX();
-        int v1_y = v1.getY();
-        int v2_y = v2.getY();
-        int v3_y = v3.getY();
-        if ((v1_x == 0 && v1_y == 0) || (v2_x == 0 && v2_y == 0) || (v3_x == 0 && v3_y == 0)) { // vector cannot be 0 vector.
-            throw new Exception("It's not a triangle");
+        if (!checkValidZeroVector(vectors)) {
+            throw new ShapeException("It's not a triangle!");
         }
-        if ((v1_x / v2_x == v1_y / v2_y) || (v1_x / v3_x == v1_y / v3_y) || (v2_x / v3_x == v2_y / v2_y)) { // vectors cannot be parallel.
-            throw new Exception("It's not a triangle!");
+        if (! checkValidDirection(vectors)) {
+            throw new ShapeException("It's not a triangle!");
         }
-        this.v1 = v1;
-        this.v2 = v2;
-        this.v3 = v3;
+        this.vectors = vectors;
     }
 
     public double perimeter() {
-        double a = this.v1.subtract(v2).length();
-        double b = this.v2.subtract(v3).length();
-        double c = this.v3.subtract(v1).length();
+        double a = this.vectors.get(0).subtract(vectors.get(1)).length();
+        double b = this.vectors.get(1).subtract(vectors.get(2)).length();
+        double c = this.vectors.get(2).subtract(vectors.get(0)).length();
         return a + b + c;
     }
 
     public double area() {
-        int a = this.v1.cross(v2);
-        int b = this.v2.cross(v3);
-        int c = this.v3.cross(v1);
-        return a + b + c;
+        int a = this.vectors.get(0).cross(vectors.get(1));
+        int b = this.vectors.get(1).cross(vectors.get(2));
+        int c = this.vectors.get(2).cross(vectors.get(0));
+        return (Math.abs(a) + Math.abs(b) + Math.abs(c)) / 2.0;
+    }
+
+    private boolean checkValidZeroVector(List<TwoDimensionalVector> vectors) {
+        int[] arrZero = new int[3];
+        int sum = 0;
+        for (int i = 0; i < vectors.size(); i++) {
+            if (vectors.get(i).isZero()) {
+                arrZero[i] = 1;
+            }else {
+                arrZero[i] = 0;
+            }
+        }
+        for (int i = 0; i < vectors.size(); i++) {
+            sum += arrZero[i];
+        }
+        if (sum == 2 || sum == 3) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkValidDirection(List<TwoDimensionalVector> vectors) {
+        for (int i = 0; i < vectors.size(); i++) {
+            if (vectors.get(i).isZero()) {
+                vectors.remove(i);
+            }
+        }
+        if (vectors.size() == 3) {
+            return true;
+        }
+        if (vectors.get(0).isParallel(vectors.get(1))) {
+            return false;
+        }
+        return true;
     }
 }
