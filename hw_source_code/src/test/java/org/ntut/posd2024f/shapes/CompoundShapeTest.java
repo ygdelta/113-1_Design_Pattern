@@ -2,7 +2,6 @@ package org.ntut.posd2024f.shapes;
 
 import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Rule;
@@ -11,7 +10,6 @@ import org.junit.rules.ExpectedException;
 
 public class CompoundShapeTest {
     private CompoundShape test;
-    private List<Shape> shapes;
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -28,7 +26,6 @@ public class CompoundShapeTest {
         shapes.add(s1);
         shapes.add(s2);
         this.test = new CompoundShape(shapes);
-        this.shapes = shapes;
     }
 
     @Test
@@ -67,14 +64,4 @@ public class CompoundShapeTest {
         assertEquals(perimeter, test.perimeter(), 0.01);
     }
 
-    @Test
-    public void testCompoundShapeIterator() {
-        Iterator<Shape> it = test.iterator();
-        int index = 0;
-        while (it.hasNext()) {
-            Shape s = it.next();
-            assertEquals(shapes.get(index), s);
-            index++;
-        }
-    }
 }

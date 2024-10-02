@@ -18,7 +18,7 @@ public class TwoDimensionalVector {
     }
 
     public int cross(TwoDimensionalVector v) {
-        return this.x * v.getY() + this.y * v.getX();
+        return this.x * v.getY() - this.y * v.getX();
     }
 
     public TwoDimensionalVector subtract(TwoDimensionalVector v) {

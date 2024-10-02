@@ -38,7 +38,7 @@ public class TwoDimensionalVectorTest {
 
     @Test
     public void testVectorCross() {
-        int ans = 3 * 2 + 4 * 1;
+        int ans = 3 * 2 - 4 * 1;
         assertEquals(ans, v1.cross(v2));
     }
 

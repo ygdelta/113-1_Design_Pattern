@@ -1,11 +1,8 @@
 package org.ntut.posd2024f.shapes;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 import java.util.Collections;
-
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class SortTest {
