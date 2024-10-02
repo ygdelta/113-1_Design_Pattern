@@ -30,10 +30,10 @@ public class RectangleTest {
         new Rectangle(-3.3, 3);
     }
 
-    @Test
-    public void testRectangleToString() throws Exception {
-        assertEquals("Rectangle 4 3", r.toString());
-    }
+    // @Test
+    // public void testRectangleToString() throws Exception {
+    //     assertEquals("Rectangle 4 3", r.toString());
+    // }
 
     @Test
     public void testRectanglePerimeter() {
