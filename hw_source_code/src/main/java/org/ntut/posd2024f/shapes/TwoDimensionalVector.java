@@ -18,7 +18,13 @@ public class TwoDimensionalVector {
     }
 
     public int cross(TwoDimensionalVector v) {
-        return this.x * v.getY() + this.y * v.getX();
+        return this.x * v.getY() - this.y * v.getX();
+    }
+
+    public TwoDimensionalVector add(TwoDimensionalVector v) {
+        int x = this.x + v.getX();
+        int y = this.y + v.getY();
+        return new TwoDimensionalVector(x, y);
     }
 
     public TwoDimensionalVector subtract(TwoDimensionalVector v) {
@@ -33,5 +39,25 @@ public class TwoDimensionalVector {
 
     public int getY() {
         return this.y;
+    }
+
+    public boolean isZero() {
+        return (this.x == 0 && this.y == 0);
+    }
+
+    public boolean isParallel(TwoDimensionalVector v) {
+        if (this.x == 0 && v.getX() == 0) {
+            return true;
+        }
+        if (this.y == 0 && v.getY() == 0) {
+            return true;
+        }
+        double c = this.x / v.getX();
+        return (this.y / v.getY() == c);
+    }
+
+    @Override
+    public String toString() {
+        return "(" + Integer.toString(this.x) + ", " + Integer.toString(this.y) + ")";
     }
 }

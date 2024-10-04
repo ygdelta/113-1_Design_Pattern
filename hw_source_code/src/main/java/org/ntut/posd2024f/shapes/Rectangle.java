@@ -4,9 +4,9 @@ import java.lang.String;
 public class Rectangle implements Shape {
     private double length;
     private double width;
-    public Rectangle(double length, double width) throws Exception {
+    public Rectangle(double length, double width) throws ShapeException {
         if(length <= 0 || width <= 0) {
-            throw new Exception("It's not a rectangle!");
+            throw new ShapeException("It's not a rectangle!");
         }
         this.length = length;
         this.width = width;

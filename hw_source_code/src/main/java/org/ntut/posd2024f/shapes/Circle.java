@@ -2,9 +2,9 @@ package org.ntut.posd2024f.shapes;
 
 public class Circle implements Shape {
     private double radius;
-    public Circle(double radius) throws Exception {
+    public Circle(double radius) throws ShapeException {
         if (radius <= 0) {
-            throw new Exception("It's not a circle!");
+            throw new ShapeException("It's not a circle!");
         }
         this.radius = radius;
     }
