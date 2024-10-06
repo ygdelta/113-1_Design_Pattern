@@ -15,10 +15,12 @@ public class ConvexPolygon implements Shape {
 
     public double area() {
         double area = 0;
+        TwoDimensionalVector std = vectors.get(0);
         for (int i = 1; i < this.vectors.size() - 1; i++) {
-            area += Math.abs(this.vectors.get(i).cross(this.vectors.get(i + 1)));
+            TwoDimensionalVector v1 = vectors.get(i);
+            TwoDimensionalVector v2 = vectors.get(i + 1);
+            area += Math.abs(v1.subtract(std).cross(v2.subtract(std)));
         }
-        area += Math.abs(this.vectors.get(vectors.size() - 1).cross(this.vectors.get(0)));
         return area / 2.0;
     }
 
