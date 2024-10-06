@@ -1,5 +1,6 @@
 package org.ntut.posd2024f.shapes;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -8,6 +9,10 @@ public class CompoundShape implements Shape {
 
     public CompoundShape(List<Shape> shapes) {
         this.shapes = shapes;
+    }
+
+    public CompoundShape() {
+        this.shapes = new ArrayList<>();
     }
     
     public double area() {

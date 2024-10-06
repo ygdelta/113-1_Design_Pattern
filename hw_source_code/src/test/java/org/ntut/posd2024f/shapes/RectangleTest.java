@@ -24,16 +24,11 @@ public class RectangleTest {
     }
 
     @Test
-    public void testTriangleCreationFailure() throws Exception {
-        thrown.expect(Exception.class);
+    public void testTriangleCreationFailure() throws ShapeException {
+        thrown.expect(ShapeException.class);
         thrown.expectMessage("It's not a rectangle!");
         new Rectangle(-3.3, 3);
     }
-
-    // @Test
-    // public void testRectangleToString() throws Exception {
-    //     assertEquals("Rectangle 4 3", r.toString());
-    // }
 
     @Test
     public void testRectanglePerimeter() {

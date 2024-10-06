@@ -28,6 +28,7 @@ public class ConvexPolygonTest {
     @Test
     public void testConvexCreationException() {
         thrown.expect(ShapeException.class);
+        thrown.expectMessage("It's not a convex polygon!");
         List<TwoDimensionalVector> vectors = new ArrayList<>();
         vectors.add(new TwoDimensionalVector(0, 3));
         vectors.add(new TwoDimensionalVector(0, -8));
@@ -35,6 +36,16 @@ public class ConvexPolygonTest {
         vectors.add(new TwoDimensionalVector(-1, 0));
         new ConvexPolygon(vectors);
     } 
+
+    @Test
+    public void testConvexCreationCounterClockWise() {
+        List<TwoDimensionalVector> vectors = new ArrayList<>();
+        vectors.add(new TwoDimensionalVector(3, 0));
+        vectors.add(new TwoDimensionalVector(3, 4));
+        vectors.add(new TwoDimensionalVector(-5, 4));
+        vectors.add(new TwoDimensionalVector(-5, 0));
+        new ConvexPolygon(vectors);
+    }
 
     @Test
     public void testConvexCreation() {

@@ -8,14 +8,14 @@ import org.junit.Test;
 public class SortTest {
     private ArrayList<Shape> arr = new ArrayList<Shape>();
 
-    public SortTest() throws Exception {
+    public SortTest() throws ShapeException {
         // arr.add(new Triangle(3, 4, 5));
         arr.add(new Circle(5.5));
         arr.add(new Rectangle(1, 2));
     }
 
     @Test
-    public void testAreaSortAec() throws Exception {
+    public void testAreaSortAec() throws ShapeException {
         ArrayList<Shape> expecList = new ArrayList<Shape>();
         expecList.add(new Rectangle(1, 2));
         // expecList.add(new Triangle(3, 4, 5));
@@ -25,7 +25,7 @@ public class SortTest {
     }
 
     @Test
-    public void testAreaSortDec() throws Exception {
+    public void testAreaSortDec() throws ShapeException {
         ArrayList<Shape> expecList = new ArrayList<Shape>();
         expecList.add(new Circle(5.5));
         // expecList.add(new Triangle(3, 4, 5));
@@ -35,7 +35,7 @@ public class SortTest {
     }
 
     @Test
-    public void testPerimeterSortAec() throws Exception {
+    public void testPerimeterSortAec() throws ShapeException {
         ArrayList<Shape> expecList = new ArrayList<Shape>();
         expecList.add(new Rectangle(1, 2));
         // expecList.add(new Triangle(3, 4, 5));
@@ -45,7 +45,7 @@ public class SortTest {
     }
 
     @Test
-    public void testPerimeterSortDec() throws Exception {
+    public void testPerimeterSortDec() throws ShapeException {
         ArrayList<Shape> expecList = new ArrayList<Shape>();
         expecList.add(new Circle(5.5));
         // expecList.add(new Triangle(3, 4, 5));

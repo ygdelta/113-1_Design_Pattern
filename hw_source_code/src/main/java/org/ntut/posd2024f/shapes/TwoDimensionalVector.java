@@ -21,6 +21,12 @@ public class TwoDimensionalVector {
         return this.x * v.getY() - this.y * v.getX();
     }
 
+    public TwoDimensionalVector add(TwoDimensionalVector v) {
+        int x = this.x + v.getX();
+        int y = this.y + v.getY();
+        return new TwoDimensionalVector(x, y);
+    }
+
     public TwoDimensionalVector subtract(TwoDimensionalVector v) {
         int x = this.x - v.getX();
         int y = this.y - v.getY();
@@ -48,5 +54,10 @@ public class TwoDimensionalVector {
         }
         double c = this.x / v.getX();
         return (this.y / v.getY() == c);
+    }
+
+    @Override
+    public String toString() {
+        return "(" + Integer.toString(this.x) + ", " + Integer.toString(this.y) + ")";
     }
 }

@@ -25,14 +25,14 @@ public class Sort{
     private static class ByPerimeterAscending implements Comparator<Shape> {
         @Override
         public int compare(Shape left, Shape right){
-            return Double.compare(right.perimeter(), left.perimeter());
+            return Double.compare(left.perimeter(), right.perimeter());
         }
     }
 
     private static class ByPerimeterDescending implements Comparator<Shape> {
         @Override
         public int compare(Shape left, Shape right){
-            return Double.compare(left.perimeter(), right.perimeter());
+            return Double.compare(right.perimeter(), left.perimeter());
         }
     }    
 }

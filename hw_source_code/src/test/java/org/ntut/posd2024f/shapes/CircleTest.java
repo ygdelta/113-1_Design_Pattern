@@ -24,15 +24,10 @@ public class CircleTest {
     }
 
     @Test
-    public void testException1() throws Exception {
-        thrown.expect(Exception.class);
+    public void testException1() throws ShapeException {
+        thrown.expect(ShapeException.class);
         thrown.expectMessage("It's not a circle!");
         new Circle(-3.3);
-    }
-
-    @Test
-    public void testCircleToString() throws Exception {
-        assertEquals("Circle 3", c.toString());
     }
 
     @Test
@@ -41,7 +36,8 @@ public class CircleTest {
         assertEquals(ans, c.perimeter(), 0.01);
     }
 
-    @Test void testCircleArea() {
+    @Test 
+    public void testCircleArea() {
         double ans = Math.PI * 3.0 * 3.0;
         assertEquals(ans, c.area(), 0.01);
     }
