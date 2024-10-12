@@ -29,6 +29,7 @@ import java.util.function.Predicate;
 
     // @Override
     // public void visitTextedShape(TextedShape textedShape) {
+        
     // }
 
     // @Override

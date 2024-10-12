@@ -11,4 +11,5 @@ public interface Shape {
     public default Iterator<Shape> iterator() {
         return new NullIterator();
     } 
+    //public <T> void accept(Visitor<T> visitor);
 }
