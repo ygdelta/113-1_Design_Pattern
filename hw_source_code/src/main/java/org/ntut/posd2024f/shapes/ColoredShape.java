@@ -6,6 +6,9 @@ public class ColoredShape implements Shape {
     private Shape shape;
     private String color;
     public ColoredShape(Shape shape, String color) {
+        if (color != "RED" || color != "Green" || color != "BLUE") {
+            throw new ShapeException("Color is not defined.");
+        }
         this.shape = shape;
         this.color = color;
     }

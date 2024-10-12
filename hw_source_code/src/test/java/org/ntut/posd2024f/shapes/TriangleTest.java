@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TriangleTest {
-    @Test // TODO
+    @Test
     public void testTriangleException1() {
         List<TwoDimensionalVector> vectors = new ArrayList<>();
         vectors.add(new TwoDimensionalVector(2, 0));
@@ -17,7 +17,7 @@ public class TriangleTest {
         assertThrows(ShapeException.class, () -> new Triangle(vectors), "It's not a triangle!");
     }
 
-    @Test // TODO
+    @Test
     public void testTriangleException2() {
         List<TwoDimensionalVector> vectors = new ArrayList<>();
         vectors.add(new TwoDimensionalVector(0, 0));
@@ -64,5 +64,15 @@ public class TriangleTest {
         Triangle t = new Triangle(vectors);
         double ans = ((2 - (-1)) * 3) / 2.0; // 1/2 * w * h
         assertEquals(ans, t.area(), 0.01);
+    }
+
+    @Test
+    public void testTriangleGetVectors() {
+        List<TwoDimensionalVector> vectors = new ArrayList<>();
+        vectors.add(new TwoDimensionalVector(2, 0));
+        vectors.add(new TwoDimensionalVector(-1, 0));
+        vectors.add(new TwoDimensionalVector(0, 3));
+        Triangle t = new Triangle(vectors);
+        assertEquals(vectors.toString(), t.getVectors().toString());
     }
 }

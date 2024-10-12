@@ -11,5 +11,6 @@ public interface Shape {
     public default Iterator<Shape> iterator() {
         return new NullIterator();
     } 
-    //public <T> void accept(Visitor<T> visitor);
+    public default <T> void accept(Visitor<T> visitor) {};
+    // TODO: delete default after done the test.
 }

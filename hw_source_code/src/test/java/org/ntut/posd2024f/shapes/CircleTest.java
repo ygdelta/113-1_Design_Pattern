@@ -34,4 +34,10 @@ public class CircleTest {
         double ans = Math.PI * 3.0 * 3.0;
         assertEquals(ans, c.area(), 0.01);
     }
+
+    @Test 
+    public void testCircleRadius() {
+        double ans = 3.0;
+        assertEquals(ans, c.getRadius(), 0.01);
+    }
 }

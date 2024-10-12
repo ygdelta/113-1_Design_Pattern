@@ -23,4 +23,17 @@ public class Rectangle implements Shape {
     public String toString() {
         return new String("Rectangle " + Double.valueOf(this.length) + " " + Double.valueOf(this.width));
     }
+    
+    public double getLength() {
+        return this.length;
+    }
+
+    public double getWidth() {
+        return this.width;
+    }
+
+    @Override
+    public <T> void accept(Visitor<T> visitor) {
+        visitor.visitRectangle(this);
+    }
 }

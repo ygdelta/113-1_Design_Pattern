@@ -21,7 +21,7 @@ public class ConvexPolygonTest {
         this.c = new ConvexPolygon(vectors);
     }
 
-    @Test// TODO
+    @Test
     public void testConvexCreationException() {
         List<TwoDimensionalVector> vectors = new ArrayList<>();
         vectors.add(new TwoDimensionalVector(0, 3));

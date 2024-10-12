@@ -20,4 +20,13 @@ public class Circle implements Shape {
     public String toString() {
         return new String("Circle " + Double.valueOf(this.radius));
     }
+
+    @Override
+    public <T> void accept(Visitor<T> vistor) {
+        vistor.visitCircle(this);
+    }
+
+    public double getRadius() {
+        return this.radius;
+    }
 }

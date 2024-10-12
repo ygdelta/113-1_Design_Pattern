@@ -18,7 +18,7 @@ public class RectangleTest {
         }
     }
 
-    @Test // TODO:
+    @Test
     public void testTriangleCreationFailure() throws ShapeException {
         assertThrows(ShapeException.class, () -> new Rectangle(-3.3, 3), "It's not a rectangle!");
     }
@@ -35,4 +35,15 @@ public class RectangleTest {
         assertEquals(ans, r.area(), 0.01);
     }
 
+    @Test
+    public void testRectangleGetLength() {
+        double ans = 4.0;
+        assertEquals(ans, r.getLength());
+    }
+
+    @Test
+    public void testRectangleGetWidth() {
+        double ans = 3.0;
+        assertEquals(ans, r.getWidth());
+    }
 }

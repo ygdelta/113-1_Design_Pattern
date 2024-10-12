@@ -30,4 +30,13 @@ public class Triangle implements Shape {
         TwoDimensionalVector v2 = vectors.get(2).subtract(vectors.get(1));
         return (Math.abs(v1.cross(v2))) / 2.0;
     }
+
+    @Override
+    public <T> void accept(Visitor<T> visitor) {
+        visitor.visitTriangle(this);
+    }
+
+    public List<TwoDimensionalVector> getVectors() {
+        return this.vectors;
+    }
 }

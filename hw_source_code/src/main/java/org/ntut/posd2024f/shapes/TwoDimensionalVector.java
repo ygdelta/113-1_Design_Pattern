@@ -58,6 +58,6 @@ public class TwoDimensionalVector {
 
     @Override
     public String toString() {
-        return "(" + Integer.toString(this.x) + ", " + Integer.toString(this.y) + ")";
+        return "[" + Integer.toString(this.x) + ", " + Integer.toString(this.y) + "]";
     }
 }
