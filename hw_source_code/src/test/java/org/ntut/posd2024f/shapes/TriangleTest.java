@@ -1,36 +1,29 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 public class TriangleTest {
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
-    @Test
+    @Test // TODO
     public void testTriangleException1() {
-        thrown.expect(ShapeException.class);
-        thrown.expectMessage("It's not a triangle!");
         List<TwoDimensionalVector> vectors = new ArrayList<>();
         vectors.add(new TwoDimensionalVector(2, 0));
         vectors.add(new TwoDimensionalVector(-1, 0));
         vectors.add(new TwoDimensionalVector(0, 0));
-        new Triangle(vectors);
+        assertThrows(ShapeException.class, () -> new Triangle(vectors), "It's not a triangle!");
     }
 
-    @Test
+    @Test // TODO
     public void testTriangleException2() {
-        thrown.expect(ShapeException.class);
-        thrown.expectMessage("It's not a triangle!");
         List<TwoDimensionalVector> vectors = new ArrayList<>();
         vectors.add(new TwoDimensionalVector(0, 0));
         vectors.add(new TwoDimensionalVector(1, 0));
         vectors.add(new TwoDimensionalVector(0, 0));
-        new Triangle(vectors);
+        assertThrows(ShapeException.class, () -> new Triangle(vectors), "It's not a triangle!");
     }
 
     @Test

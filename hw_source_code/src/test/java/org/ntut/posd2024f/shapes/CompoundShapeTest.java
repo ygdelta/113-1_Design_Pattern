@@ -1,20 +1,16 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 public class CompoundShapeTest {
     private CompoundShape test;
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
-    @Before
+    @BeforeEach
     public void SetUp() throws Exception {
         List<Shape> shapes = new ArrayList<>();
         List<TwoDimensionalVector> vectors = new ArrayList<>();

@@ -1,21 +1,17 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 public class ConvexPolygonTest {
     private ConvexPolygon c;
     private List<TwoDimensionalVector> vectors;
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
-    @Before
+    @BeforeEach
     public void SetUp() {
         this.vectors = new ArrayList<>();
         this.vectors.add(new TwoDimensionalVector(0, 3));
@@ -25,16 +21,14 @@ public class ConvexPolygonTest {
         this.c = new ConvexPolygon(vectors);
     }
 
-    @Test
+    @Test// TODO
     public void testConvexCreationException() {
-        thrown.expect(ShapeException.class);
-        thrown.expectMessage("It's not a convex polygon!");
         List<TwoDimensionalVector> vectors = new ArrayList<>();
         vectors.add(new TwoDimensionalVector(0, 3));
         vectors.add(new TwoDimensionalVector(0, -8));
         vectors.add(new TwoDimensionalVector(2, 0));
         vectors.add(new TwoDimensionalVector(-1, 0));
-        new ConvexPolygon(vectors);
+        assertThrows(ShapeException.class, () -> new ConvexPolygon(vectors), "It's not a convex polygon!");
     } 
 
     @Test

@@ -1,15 +1,12 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.*;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class ShapeTest {
     // e.g. Shape circle = new Circle(...)
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
     @Test
     public void testCircle() throws ShapeException {
         Shape c = new Circle(3);

@@ -1,20 +1,15 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class CircleTest {
     // e.g. Circle c = new Circle(...)
     private Circle c;
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
-    @Before
+    @BeforeEach
     public void Setup() {
         try {
             c = new Circle(3.0);
@@ -25,9 +20,7 @@ public class CircleTest {
 
     @Test
     public void testException1() throws ShapeException {
-        thrown.expect(ShapeException.class);
-        thrown.expectMessage("It's not a circle!");
-        new Circle(-3.3);
+        assertThrows(ShapeException.class, () -> new Circle(-3.3), "It's not a circle!");
     }
 
     @Test

@@ -2,8 +2,10 @@ package org.ntut.posd2024f.shapes;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import static org.junit.Assert.*;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class SortTest {
     private ArrayList<Shape> arr = new ArrayList<Shape>();

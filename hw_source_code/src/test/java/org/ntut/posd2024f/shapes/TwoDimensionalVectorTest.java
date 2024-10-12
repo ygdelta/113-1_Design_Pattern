@@ -1,15 +1,15 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class TwoDimensionalVectorTest {
     private TwoDimensionalVector v1;
     private TwoDimensionalVector v2;
 
-    @Before
+    @BeforeEach
     public void SetUp() {
         v1 = new TwoDimensionalVector(3, 4);
         v2 = new TwoDimensionalVector(1, 2);

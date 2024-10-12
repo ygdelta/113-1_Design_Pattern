@@ -1,20 +1,15 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class RectangleTest {
     // e.g. Rectangle r = new rectangle(...)    
     private Rectangle r;
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
-    @Before
+    @BeforeEach
     public void Setup() {
         try {
             r = new Rectangle(4, 3);
@@ -23,11 +18,9 @@ public class RectangleTest {
         }
     }
 
-    @Test
+    @Test // TODO:
     public void testTriangleCreationFailure() throws ShapeException {
-        thrown.expect(ShapeException.class);
-        thrown.expectMessage("It's not a rectangle!");
-        new Rectangle(-3.3, 3);
+        assertThrows(ShapeException.class, () -> new Rectangle(-3.3, 3), "It's not a rectangle!");
     }
 
     @Test

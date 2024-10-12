@@ -1,23 +1,18 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 public class NullIteratorTest {
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
-    @Test
+    @Test//TODO
     public void testNullIterator() throws Exception {
-        thrown.expect(NoSuchElementException.class);
-        thrown.expectMessage("Null iterator does not point to any element.");
-        (new Circle(1.0)).iterator().next();
+        assertThrows(NoSuchElementException.class, () -> (new Circle(1.0)).iterator().next(), "Null iterator does not point to any element.");
     }
 
     @Test
