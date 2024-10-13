@@ -66,4 +66,9 @@ public class ConvexPolygonTest {
         double ans = (1 + 2) * (3 + 8) / 2.0;
         assertEquals(ans, this.c.area(), 0.01);
     }
+
+    @Test
+    public void testGetVectors() {
+        assertEquals(this.vectors.toString(), this.c.getVectors().toString());
+    }
 }

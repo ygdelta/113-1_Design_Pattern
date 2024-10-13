@@ -52,7 +52,6 @@ public class FindShapeVisitor implements Visitor<List<Shape>> {
         if (this.condition.test(textedShape)) {
             this.result.add(textedShape);
         }
-        
     }
 
     @Override
@@ -60,6 +59,7 @@ public class FindShapeVisitor implements Visitor<List<Shape>> {
         if (this.condition.test(coloredShape)) {
             this.result.add(coloredShape);
         }
+        // TODO: Start here.
     }
 
     public List<Shape> getResult() {

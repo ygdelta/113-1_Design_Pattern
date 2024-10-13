@@ -36,7 +36,9 @@ public class TextedShape implements Shape {
         return this.text;
     }
 
-    // @Override
-    // public <T> void accept(Visitor<T> visitor) {
-    // }
+    @Override
+    public <T> void accept(Visitor<T> visitor) {
+        visitor.visitTextedShape(this);
+        this.shape.accept(visitor);
+    }
 }

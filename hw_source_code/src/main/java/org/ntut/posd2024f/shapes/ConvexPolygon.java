@@ -33,6 +33,16 @@ public class ConvexPolygon implements Shape {
         return perimeter;
     }
 
+    @Override
+    public <T> void accept(Visitor<T> visitor) {
+        visitor.visitConvexPolygon(this);
+    }
+
+    public List<TwoDimensionalVector> getVectors() {
+        return this.vectors;
+    }
+
+
     private boolean isOrdered(List<TwoDimensionalVector> vectors) {
         List<TwoDimensionalVector> sides = new ArrayList<>();
         TwoDimensionalVector test = vectors.get(0).subtract(vectors.get(vectors.size() - 1));
