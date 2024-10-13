@@ -20,13 +20,15 @@ public class TextedShape implements Shape {
         return shape.perimeter();
     }
     
-    // @Override
-    // public void add(Shape shape) {
-    // }
+    @Override
+    public void add(Shape shape) {
+        this.shape.add(shape);
+    }
 
-    // @Override
-    // public Iterator<Shape> iterator() {
-    // }
+    @Override
+    public Iterator<Shape> iterator() {
+        return this.shape.iterator();
+    }
 
     public Shape getShape() {
         return this.shape;
@@ -39,6 +41,5 @@ public class TextedShape implements Shape {
     @Override
     public <T> void accept(Visitor<T> visitor) {
         visitor.visitTextedShape(this);
-        this.shape.accept(visitor);
     }
 }

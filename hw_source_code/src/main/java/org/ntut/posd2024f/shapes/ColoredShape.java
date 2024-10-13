@@ -6,7 +6,7 @@ public class ColoredShape implements Shape {
     private Shape shape;
     private String color;
     public ColoredShape(Shape shape, String color) {
-        if (color != "RED" && color != "Green" && color != "BLUE") {
+        if (color != "RED" && color != "GREEN" && color != "BLUE") {
             throw new ShapeException("Color is not defined.");
         }
         this.shape = shape;
@@ -23,13 +23,15 @@ public class ColoredShape implements Shape {
         return shape.perimeter();
     }
 
-    // @Override
-    // public void add(Shape shape) {
-    // }
+    @Override
+    public void add(Shape shape) {
+        this.shape.add(shape);
+    }
 
-    // @Override
-    // public Iterator<Shape> iterator() {
-    // }
+    @Override
+    public Iterator<Shape> iterator() {
+        return this.shape.iterator();
+    }
 
     public Shape getShape() {
         return this.shape;
@@ -42,6 +44,5 @@ public class ColoredShape implements Shape {
     @Override
     public <T> void accept(Visitor<T> visitor) {
         visitor.visitColoredShape(this);
-        this.shape.accept(visitor);
     }
 }

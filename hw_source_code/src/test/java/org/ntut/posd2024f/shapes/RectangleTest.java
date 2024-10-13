@@ -46,4 +46,5 @@ public class RectangleTest {
         double ans = 3.0;
         assertEquals(ans, r.getWidth());
     }
+
 }

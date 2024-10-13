@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
 public class NullIteratorTest {
     @Test
     public void testNullIterator() throws Exception {
-        assertThrows(NoSuchElementException.class, () -> (new Circle(1.0)).iterator().next(), "Null iterator does not point to any element.");
+        assertThrows(NoSuchElementException.class, () -> (new Circle(1.0)).iterator().next(), "Null iterator does not point to any element");
     }
 
     @Test

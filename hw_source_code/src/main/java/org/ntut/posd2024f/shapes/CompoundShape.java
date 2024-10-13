@@ -30,6 +30,10 @@ public class CompoundShape implements Shape {
         }
         return perimeter;
     }
+
+    public List<Shape> getShapes() {
+        return this.shapes;
+    }
  
     @Override
     public void add(Shape shape) {
@@ -44,8 +48,5 @@ public class CompoundShape implements Shape {
     @Override
     public <T> void accept(Visitor<T> visitor) {
         visitor.visitCompoundShape(this);
-        for (Shape s: this.shapes) {
-            s.accept(visitor);
-        }
     }
 }
