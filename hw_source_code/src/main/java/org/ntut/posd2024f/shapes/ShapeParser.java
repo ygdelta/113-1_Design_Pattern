@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class ShapeParser {
     private Scanner scanner;
     private ShapeBuilder builder;
+    private int braceCount = 0;
     
     public ShapeParser(File file) {
         try {
@@ -31,8 +32,18 @@ public class ShapeParser {
         while (this.scanner.hasNextLine()) {
             String line = scanner.nextLine().trim();
             if (line.isEmpty()) continue;
-            if (line.startsWith("CompoundShape")) ParseCompoundShape(line);
+            if (line.startsWith("CompoundShape")) {
+                ParseCompoundShape(line);
+                this.braceCount++;
+            }
             else ParseShape(line);
+            if (line.contains("}")) {
+                builder.endBuildCompoundShape();
+                this.braceCount--;
+            }
+        }
+        if (braceCount > 0) {
+            throw new IllegalArgumentException("Expected token '}'");
         }
     }
 
@@ -120,48 +131,16 @@ public class ShapeParser {
     }
 
     private void ParseCompoundShape(String line) {
-        System.out.println(line);
         if (!line.contains("{")) {
             throw new IllegalArgumentException("Expected token '{'");
         }
-        if (!line.endsWith("}")) {
-            throw new IllegalArgumentException("Expected token '}'");
-        }
         int bIdx = line.indexOf("{");
-        int eIdx = line.lastIndexOf("}");
         String header = line.substring(0, bIdx).trim();
-        String compoundPart = line.substring(bIdx, eIdx).trim();
 
         // Parse decorator part
         Map<String, String> settings = ParseDecorator(header);
         String color = settings.get("color");
         String text = settings.get("text");
-
-        if (line.contains("{") && line.contains("}")) {
-            builder.beginBuildCompoundShape(color, text);
-            builder.endBuildCompoundShape();
-            return;
-        }
-        else
-            builder.beginBuildCompoundShape(color, text);
-        
-        int braceCount = 1;
-        while (this.scanner.hasNext() && braceCount > 0) {
-            String nextLine = scanner.nextLine().trim();
-            if (nextLine.contains("{")) braceCount++;
-            if (nextLine.contains("}")) braceCount--;
-            if (braceCount == 0) {
-                if (!nextLine.contains("}")) {
-                    throw new IllegalArgumentException("Expected token '}'");
-                }
-                builder.endBuildCompoundShape();
-                return;
-            }
-            if (!nextLine.isEmpty() && !nextLine.equals("{") && !nextLine.equals("}")) {
-                if (nextLine.startsWith("CompoundShape")) ParseCompoundShape(nextLine);
-                else ParseShape(nextLine);
-            }
-        }
-        if (braceCount > 0) throw new IllegalArgumentException("Expected token '}'");
+        builder.beginBuildCompoundShape(color, text);
     }
 }
